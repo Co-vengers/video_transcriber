@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from .forms import VideoUploadForm
 from .models import Video
 from .utils import transcribe_video
@@ -19,3 +19,7 @@ def upload_video(request):
 def video_list(request):
     videos = Video.objects.all()
     return render(request, 'video_list.html', {'videos': videos})
+
+def video_detail(request, video_id):
+    video = get_object_or_404(Video, id=video_id)
+    return render(request, 'video_detail.html', {'video': video})
