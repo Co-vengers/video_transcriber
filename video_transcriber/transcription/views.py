@@ -5,7 +5,7 @@ from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from .models import Video
 from .forms import VideoUploadForm
 
-### 🚀 AUTH VIEWS ###
+### AUTH VIEWS ###
 def register(request):
     if request.method == "POST":
         form = UserCreationForm(request.POST)
@@ -32,7 +32,7 @@ def user_logout(request):
     logout(request)
     return redirect('login')
 
-### 🚀 VIDEO VIEWS ###
+### VIDEO VIEWS ###
 @login_required
 def upload_video(request):
     if request.method == 'POST':
