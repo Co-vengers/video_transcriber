@@ -1,5 +1,24 @@
-<form method="post" enctype="multipart/form-data">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <button type="submit">Upload</button>
-</form>
+{% extends "base.html" %}
+{% block title %}Upload Video{% endblock %}
+
+{% block content %}
+<div class="card shadow p-4">
+    <h2 class="text-center">Upload a Video</h2>
+    <form method="post" enctype="multipart/form-data" class="mt-4">
+        {% csrf_token %}
+        <div class="mb-3">
+            <label class="form-label">Video Title</label>
+            {{ form.title }}
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Choose File</label>
+            {{ form.file }}
+        </div>
+        <button type="submit" class="btn btn-primary w-100">Upload & Transcribe</button>
+    </form>
+</div>
+
+<div class="text-center mt-3">
+    <a href="{% url 'video_list' %}" class="btn btn-secondary">View Transcribed Videos</a>
+</div>
+{% endblock %}
