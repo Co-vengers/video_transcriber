@@ -1,0 +1,7 @@
+{% for video in videos %}
+    <h2>{{ video.title }}</h2>
+    <video width="320" height="240" controls>
+        <source src="{{ video.file.url }}" type="video/mp4">
+    </video>
+    <p><strong>Transcript:</strong> {{ video.transcript }}</p>
+{% endfor %}
