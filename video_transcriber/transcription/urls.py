@@ -1,7 +1,8 @@
 from django.urls import path
-from . import views
+from .views import upload_video, video_list, video_detail
 
 urlpatterns = [
-    path('', views.upload_video, name='upload_video'),
-    path('videos/', views.video_list, name='video_list'),
+    path('', upload_video, name='upload_video'),
+    path('videos/', video_list, name='video_list'),
+    path('videos/<int:video_id>/', video_detail, name='video_detail'),  # New detail view
 ]
