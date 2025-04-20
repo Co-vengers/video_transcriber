@@ -41,40 +41,28 @@ Video Transcriber is an open-source tool designed to make transcription accessib
    pip install -r requirements.txt
    ```
 
-## Usage
+Usage
+Running the Development Server
 
-### Basic Command
+Start the Django development server:
+bashpython manage.py runserver
 
-```bash
-python transcriber.py --input path/to/video.mp4 --output path/to/output.txt
-```
+Access the application at http://127.0.0.1:8000/
 
-### Options
+Using the Web Interface
 
-- `--input`, `-i`: Path to input file or directory (for batch processing)
-- `--output`, `-o`: Path to output file or directory
-- `--format`, `-f`: Output format (txt, srt, vtt). Default: txt
-- `--model`, `-m`: Whisper model size (tiny, base, small, medium, large). Default: base
-- `--language`, `-l`: Language code (auto for automatic detection). Default: auto
-- `--verbose`, `-v`: Enable verbose output
-- `--device`, `-d`: Device to use (cpu, cuda). Default: cpu if no GPU available
+Login/Register: Create an account or log in to your existing account
+Upload Files: Use the upload form to select and upload your video or audio files
+Configure Settings:
 
-### Examples
+Select output format (TXT, SRT, VTT)
+Choose Whisper model size (tiny, base, small, medium, large)
+Specify language (or select auto-detection)
 
-**Transcribe a single file:**
-```bash
-python transcriber.py -i videos/lecture.mp4 -o transcripts/lecture.txt
-```
 
-**Batch processing:**
-```bash
-python transcriber.py -i videos/ -o transcripts/ -f srt
-```
+Process Files: Click the "Transcribe" button to start processing
+Download Results: Once processing is complete, download your transcriptions
 
-**Specify language and model:**
-```bash
-python transcriber.py -i audio.mp3 -o transcript.txt -l en -m medium
-```
 
 ## Performance Tips
 
