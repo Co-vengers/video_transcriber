@@ -41,23 +41,25 @@ Video Transcriber is an open-source tool designed to make transcription accessib
    pip install -r requirements.txt
    ```
 
-Usage
+## Usage
 Running the Development Server
 
 Start the Django development server:
+```
 bashpython manage.py runserver
+```
 
 Access the application at http://127.0.0.1:8000/
 
-Using the Web Interface
+## Using the Web Interface
 
-Login/Register: Create an account or log in to your existing account
-Upload Files: Use the upload form to select and upload your video or audio files
-Configure Settings:
+- Login/Register: Create an account or log in to your existing account
+- Upload Files: Use the upload form to select and upload your video or audio files
+- Configure Settings:
 
-Select output format (TXT, SRT, VTT)
-Choose Whisper model size (tiny, base, small, medium, large)
-Specify language (or select auto-detection)
+ Select output format (TXT, SRT, VTT)
+- Choose Whisper model size (tiny, base, small, medium, large)
+- Specify language (or select auto-detection)
 
 
 Process Files: Click the "Transcribe" button to start processing
