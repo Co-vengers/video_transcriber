@@ -63,6 +63,10 @@ Video Transcriber is a modern, full-featured web application for transcribing vi
    ```bash
    docker-compose up --build
    ```
+   On ARM64 hosts (e.g., Apple Silicon or ARM-based Linux VMs), the Docker platform is defaulted to `linux/amd64` for better Python ML wheel compatibility. To run native ARM64 instead:
+   ```bash
+   DOCKER_PLATFORM=linux/arm64 docker compose up --build
+   ```
 
 4. Access the application:
    - Web UI: http://localhost:8000

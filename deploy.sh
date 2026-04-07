@@ -8,8 +8,8 @@
 
 set -e
 
-REPO_URL="https://github.com/Co-vengers/video_transcriber.git"
-APP_DIR="/opt/soundnote"
+REPO_URL="https://github.com/Co-vengers/SoundNote.git"
+APP_DIR="soundnote"
 SERVICE_NAME="soundnote"
 
 echo "=== SoundNote Deployment Script ==="
@@ -87,7 +87,12 @@ echo "  systemd service installed and enabled."
 # ── 6. Build and start ────────────────────────────────────────────────────────
 echo "[6/7] Building Docker images and starting services..."
 cd "$APP_DIR"
-docker compose build --quiet
+if ! docker compose build --quiet; then
+    echo ""
+    echo "  Docker build failed. Retrying with full logs..."
+    docker compose build
+    exit 1
+fi
 systemctl start ${SERVICE_NAME}.service
 echo "  Services started."
 

@@ -24,6 +24,7 @@ services:
       retries: 10
 
   web:
+    platform: ${DOCKER_PLATFORM:-linux/amd64}
     build: .
     restart: unless-stopped
     working_dir: /app/video_transcriber
@@ -57,6 +58,7 @@ services:
         condition: service_healthy
 
   worker:
+    platform: ${DOCKER_PLATFORM:-linux/amd64}
     build: .
     restart: unless-stopped
     working_dir: /app/video_transcriber
