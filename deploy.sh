@@ -87,10 +87,14 @@ echo "  systemd service installed and enabled."
 # ── 6. Build and start ────────────────────────────────────────────────────────
 echo "[6/7] Building Docker images and starting services..."
 cd "$APP_DIR"
-if ! docker compose build --quiet; then
+set +e
+docker compose build --quiet
+BUILD_RC=$?
+set -e
+if [ $BUILD_RC -ne 0 ]; then
     echo ""
     echo "  Docker build failed. Retrying with full logs..."
-    docker compose build
+    docker compose build --progress=plain
     exit 1
 fi
 systemctl start ${SERVICE_NAME}.service

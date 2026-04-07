@@ -11,7 +11,7 @@ WORKDIR /app
 
 COPY requirements.txt /app/requirements.txt
 RUN pip install --no-cache-dir --upgrade pip wheel "setuptools<81" \
-    && pip install --no-cache-dir --no-build-isolation -r /app/requirements.txt
+    && pip install --no-cache-dir --prefer-binary -r /app/requirements.txt
 
 COPY . /app
 
